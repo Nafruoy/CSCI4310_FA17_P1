@@ -26,12 +26,8 @@ public class WorkerPeople extends Persons {
 
 	public void checkElevator(){
 		if (super.state == 'waiting'){
-		// A for loop referencing each elevator in the elevator ArrayList should be implemented for the following 3 if statements.
-			if (Elevator.onFloor == super.floor && destination.type == 'business' && (Floor.type == 'business' || Floor.type == 'worker') && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
-				elevatorNum = Elevator.elevatorNum;
-				super.state= 'riding';
-			}
-			else if (Elevator.onFloor == super.floor && Elevator.type == 'worker' && destination.type == 'worker' && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
+		// A for loop referencing each elevator in the elevator ArrayList should be implemented for the following if statement.
+			if (Elevator.onFloor == super.floor && Elevator.type == 'worker' && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
 				elevatorNum = Elevator.elevatorNum;
 				super.state= 'riding';
 			}
