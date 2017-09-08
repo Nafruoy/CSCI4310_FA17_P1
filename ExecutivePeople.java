@@ -3,6 +3,8 @@ import java.util.Random;
 public class ExecutivePeople extends Persons {
 	private int ExecutiveNumbers;
 	private int NumberFloors;
+	private char elevatorNum;
+	private char destination;
 	
 	public void setDecisionExecutive() {
 		ExecutiveNumbers = super.setDecisionExecutive(3);
@@ -16,6 +18,34 @@ public class ExecutivePeople extends Persons {
 	
 	public void setNumberFloors(){
 		NumberFloors = super.getFloor();
+	}
+	
+	public void setDestination(){
+		destination = Floor;
+	}
+
+	public void checkElevator(){
+		if (super.state == 'waiting'){
+			// A for loop referencing each elevator in the elevator ArrayList should be implemented for the following 3 if statements.
+			if (Elevator.onFloor == super.floor && destination.type == 'executive' && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
+				elevatorNum = Elevator.elevatorNum;
+				super.state= 'riding';
+			}
+			else if (Elevator.onFloor == super.floor && destination.type == 'business' && (Floor.type == 'business' || Floor.type == 'worker') && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
+				elevatorNum = Elevator.elevatorNum;
+				super.state= 'riding';
+			}
+			else if (Elevator.onFloor == super.floor && Elevator.type == 'worker' && destination.type == 'worker' && Elevator.state == 'loading' && Elevator.peopleRiding < 5){
+				elevatorNum = Elevator.elevatorNum;
+				super.state= 'riding';
+			}
+		else if (super.state = 'riding'){
+			if (Elevator.onFloor == destination){
+				super.floor = destination;
+				super.state = 'working';
+			}
+		}	
+		}
 	}
 	
 	public String getNumberFloor(){
